@@ -1,13 +1,13 @@
-## Sobre o projeto
+## 📋 Sobre o projeto
 
 O **TaskFlow API** é uma API REST desenvolvida em C# com ASP.NET Core para gerenciamento de projetos pessoais e tarefas, permitindo organizar atividades, definir prioridades e prazos e acompanhar seu andamento.
 
-## Objetivo
+## 🎯 Objetivo
 
 Praticar e demonstrar boas práticas de desenvolvimento backend, explorando os princípios SOLID, Design Patterns quando apropriado e testes automatizados.
 
 
-## Configuração do ambiente local
+## 🛠️ Configuração do ambiente local
 
 Siga os passos abaixo para configurar o banco de dados PostgreSQL e executar a API localmente.
 
