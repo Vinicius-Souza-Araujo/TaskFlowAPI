@@ -6,6 +6,14 @@ O **TaskFlow API** é uma API REST desenvolvida em C# com ASP.NET Core para gere
 
 Praticar e demonstrar boas práticas de desenvolvimento backend, explorando os princípios SOLID, Design Patterns quando apropriado e testes automatizados.
 
+## 📦 Pré-requisitos
+
+Antes de executar o projeto, certifique-se de ter instalado:
+
+- **.NET SDK 10.0:** para compilar e executar a API.
+- **Docker:** para executar o PostgreSQL em um contêiner.
+- **Git:** para clonar o repositório.
+- **Visual Studio ou outra IDE compatível com desenvolvimento .NET** para facilitar a execução e depuração da API.
 
 ## 🛠️ Configuração do ambiente local
 
