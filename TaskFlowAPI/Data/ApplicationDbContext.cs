@@ -13,5 +13,13 @@ namespace TaskFlowAPI.Data
         public DbSet<Projeto> Projetos => Set<Projeto>();
 
         public DbSet<Tarefa> Tarefas => Set<Tarefa>();
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfigurationsFromAssembly(
+                typeof(ApplicationDbContext).Assembly);
+        }
     }
 }
