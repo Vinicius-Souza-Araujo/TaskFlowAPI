@@ -30,7 +30,7 @@ Na raiz do projeto, você encontrará o arquivo `.env.example`, que contém um e
 
 ### 2. Inicie o banco de dados
 
-Com o Docker Desktop instalado e em execução, abra um terminal na pasta que contém o arquivo `compose.yaml` e execute:
+Com o Docker instalado e em execução, abra um terminal na pasta que contém o arquivo `compose.yaml` e execute:
 
 ```bash
 docker compose up -d
