@@ -8,5 +8,6 @@ namespace TaskFlowAPI.Repositories.Projetos
         Task <List<Projeto>> ListarAsync(bool? arquivado);
         Task<Projeto> AdicionarAsync(Projeto projeto);
         Task<Projeto> AtualizarAsync(Projeto projeto);
+        Task<bool> ExisteAsync(int projetoId);
     }
 }

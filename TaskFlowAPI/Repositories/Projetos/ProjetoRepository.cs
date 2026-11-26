@@ -16,8 +16,8 @@ namespace TaskFlowAPI.Repositories.Projetos
         public async Task<Projeto?> BuscarPorIdAsync(int id)
         {
             return await _context.Projetos
-            .AsNoTracking()
-            .FirstOrDefaultAsync(p => p.Id == id);
+                .AsNoTracking()
+                .FirstOrDefaultAsync(p => p.Id == id);
         }
         public async Task<List<Projeto>> ListarAsync(bool? arquivado)
         {
@@ -41,6 +41,12 @@ namespace TaskFlowAPI.Repositories.Projetos
             _context.Projetos.Update(projeto);
             await _context.SaveChangesAsync();
             return projeto;
+        }
+
+        public async Task<bool> ExisteAsync(int projetoId)
+        {
+            return await _context.Projetos
+                .AnyAsync(p => p.Id == projetoId);
         }
     }
 }

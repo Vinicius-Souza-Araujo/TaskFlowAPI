@@ -16,10 +16,10 @@ namespace TaskFlowAPI.Controllers
             _projetoService = projetoService;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         [ProducesResponseType(typeof(ProjetoResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<ProjetoResponseDto>> BuscarPorId(int id)
+        public async Task<ActionResult<ProjetoResponseDto>> BuscarPorId([FromRoute] int id)
         {
             var projeto = await _projetoService.BuscarPorIdAsync(id);
 
@@ -47,11 +47,11 @@ namespace TaskFlowAPI.Controllers
             return StatusCode(StatusCodes.Status201Created, projetoCriado);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         [ProducesResponseType(typeof(ProjetoResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<ProjetoResponseDto>> Atualizar(int id,[FromBody] AtualizarProjetoDto dto)
+        public async Task<ActionResult<ProjetoResponseDto>> Atualizar([FromRoute] int id,[FromBody] AtualizarProjetoDto dto)
         {
             var projetoAtualizado = await _projetoService.AtualizarAsync(id, dto);
 
@@ -61,11 +61,11 @@ namespace TaskFlowAPI.Controllers
             return Ok(projetoAtualizado);
         }
 
-        [HttpPatch("{id}/arquivamento")]
+        [HttpPatch("{id:int}/arquivamento")]
         [ProducesResponseType(typeof(ProjetoResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<ProjetoResponseDto>> AtualizarArquivamento(int id,[FromBody] AtualizarArquivamentoProjetoDto dto)
+        public async Task<ActionResult<ProjetoResponseDto>> AtualizarArquivamento([FromRoute] int id,[FromBody] AtualizarArquivamentoProjetoDto dto)
         {
             var projetoAtualizado = await _projetoService.AtualizarArquivamentoAsync(id, dto.Arquivado!.Value);
 
