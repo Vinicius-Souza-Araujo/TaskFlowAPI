@@ -49,6 +49,61 @@ namespace TaskFlowAPI.Migrations
 
                     b.ToTable("Projetos");
                 });
+
+            modelBuilder.Entity("TaskFlowAPI.Models.Tarefa", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DataCriacao")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateOnly?>("DataVencimento")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Descricao")
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
+
+                    b.Property<int>("Prioridade")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ProjetoId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjetoId");
+
+                    b.ToTable("Tarefas");
+                });
+
+            modelBuilder.Entity("TaskFlowAPI.Models.Tarefa", b =>
+                {
+                    b.HasOne("TaskFlowAPI.Models.Projeto", "Projeto")
+                        .WithMany("Tarefas")
+                        .HasForeignKey("ProjetoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Projeto");
+                });
+
+            modelBuilder.Entity("TaskFlowAPI.Models.Projeto", b =>
+                {
+                    b.Navigation("Tarefas");
+                });
 #pragma warning restore 612, 618
         }
     }
